@@ -1,0 +1,7 @@
+TASK-1 :PYTHON -
+
+Your task is learning basics of python.
+Learn these concepts thoroughly as they are the basics for the tasks ahead.
+Deadline: 10th Feb
+
+https://www.youtube.com/watch?v=rfscVS0vtbw&t=2426s
