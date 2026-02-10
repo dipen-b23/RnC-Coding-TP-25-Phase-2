@@ -1,0 +1,83 @@
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks   
+
+    def total(self):
+        return sum(self.marks)
+
+    def average(self):
+        return sum(self.marks) / len(self.marks)
+
+
+def create_students():
+    students = []
+
+    n = int(input("Enter number of students: "))
+    subjects = int(input("Enter number of subjects: "))
+
+    for i in range(n):
+        print("\nEnter details of student", i + 1)
+        name = input("Name: ")
+
+        marks_input = input("Enter marks (space-separated): ")
+        marks_tuple = tuple(map(int, marks_input.split()))
+
+        students.append(Student(name, marks_tuple))
+
+    return students
+
+
+def analyze_students(students):
+    total_marks = 0
+    total_subjects = 0
+
+    for s in students:
+        total_marks += s.total()
+        total_subjects += len(s.marks)
+
+    overall_average = total_marks / total_subjects
+
+    highest = students[0]
+    lowest = students[0]
+
+    for s in students:
+        if s.total() > highest.total():
+            highest = s
+        if s.total() < lowest.total():
+            lowest = s
+
+    #Sort students by total marks (descending)
+    for i in range(len(students)):
+        for j in range(i + 1, len(students)):
+            if students[j].total() > students[i].total():
+                students[i], students[j] = students[j], students[i]
+
+    print("\nAnalysis")
+    print("Average marks of all students:", overall_average)
+
+    print("\nHighest scorer:")
+    print(highest.name, "-", highest.total())
+
+    print("\nLowest scorer:")
+    print(lowest.name, "-", lowest.total())
+
+    print("\nStudents sorted by total marks:")
+    for s in students:
+        print(s.name, "-", s.total())
+
+
+def main():
+    students = create_students()
+
+    print("\nStudent Details")
+    for s in students:
+        print(s.name, s.marks)
+        print("Total:", s.total())
+        print("Average:", s.average())
+        print()
+
+    analyze_students(students)
+
+
+main()
