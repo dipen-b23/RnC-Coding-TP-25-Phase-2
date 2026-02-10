@@ -1,7 +1,35 @@
-TASK-1 :PYTHON -
+TASK-1 :C-
+1. Write a program to display the following pattern.  (W:3) 
 
-Your task is learning basics of python.
-Learn these concepts thoroughly as they are the basics for the tasks ahead.
-Deadline: 10th Feb
+          	  * 
+             * *  
+         * * *  
+      * * * *  
+   * * * * * 
+ 
+2. Selection Sort: Implement the selection sorting algorithm and then find the smallest 
+and largest element in an array. (W:3) 
+Sample Input: Enter the number of elements: 5 
+Enter the elements: 12 7 3 15 9 
+ Output: Maximum element: 15 
+Minimum element: 3 
+ 
+3. Find Triplet with Given Sum: Write a program to find three elements in an array that 
+add up to a given sum. (W:3) 
+Sample Input: Enter the number of elements: 5 
+Enter elements: 1 2 3 4 5 
+Enter the desired sum: 9 
+Output: Triplets with sum 9: (2, 3, 4) 
+ 
+ 
+4. Write a C program to find the union and intersection of two integer arrays.
+ (W:3) 
+Sample Input:   
+Enter the number of elements in first array: 4 
+Enter elements of first array: 1 2 3 4 
+Enter the number of elements in second array: 5 
+Enter elements of second array: 3 4 5 6 7 
+Output:  
+Union: 1 2 3 4 5 6 7 
+Intersection: 3 4
 
-https://www.youtube.com/watch?v=rfscVS0vtbw&t=2426s
