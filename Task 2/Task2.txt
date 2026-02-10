@@ -1,0 +1,25 @@
+Write a Python program that manages student marks using classes and functions.
+
+Requirements:
+Define a class Student with:
+
+Attributes:
+name — the student’s name
+marks — a tuple containing marks in all subjects
+
+Methods:
+total() → returns the total marks
+average() → returns the average marks
+Define a function create_students() that:|
+
+Asks the user to enter the number of students and subjects.
+For each student, takes input for the name and marks (space-separated).
+Creates a Student object for each and stores them in a list.
+
+Define a function analyze_students(students) that:
+Calculates and displays:
+The average marks of all students combined.
+The student with the highest total marks.
+The student with the lowest total marks.
+Prints all students sorted by their total marks in descending order.
+Use a main() function to manage program execution.
