@@ -1,0 +1,25 @@
+int bit0 = 5;  // 2^0
+int bit1 = 4;  // 2^1
+int bit2 = 3;  // 2^2
+int bit3 = 2;  // 2^3
+
+void setup() {
+  pinMode(bit0, OUTPUT);
+  pinMode(bit1, OUTPUT);
+  pinMode(bit2, OUTPUT);
+  pinMode(bit3, OUTPUT);
+}
+
+void loop() {
+
+  for (int count = 0; count <= 15; count++) {
+
+    // Write each bit to LED
+    digitalWrite(bit0, bitRead(count, 0));
+    digitalWrite(bit1, bitRead(count, 1));
+    digitalWrite(bit2, bitRead(count, 2));
+    digitalWrite(bit3, bitRead(count, 3));
+
+    delay(1000);  // 1 second delay
+  }
+}
