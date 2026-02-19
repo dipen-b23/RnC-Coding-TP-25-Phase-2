@@ -1,0 +1,136 @@
+'''DHATRI RNC TP3 ARDUINO CODE FOR BINARY COUNTER'''
+
+
+'''
+// C++ code
+//
+int dit=50;
+int dah=750;
+int red=13;
+int blue=12;
+int yellow=11;
+int green=10;
+  
+void setup()
+{
+  pinMode(red, OUTPUT);
+  pinMode(blue, OUTPUT);
+  pinMode(yellow, OUTPUT);
+  pinMode(green, OUTPUT);
+}
+
+void loop()
+{
+  //number 0
+  digitalWrite(red, LOW);
+  digitalWrite(blue, LOW);
+  digitalWrite(yellow, LOW);
+  digitalWrite(green, LOW);
+  delay(dah);
+  
+  //number 1
+  digitalWrite(red, LOW);
+  digitalWrite(blue,LOW);
+  digitalWrite(yellow, LOW); 
+  digitalWrite(green, HIGH);
+  delay(dah);
+  
+  //NUMBER 2
+  digitalWrite(red, LOW);
+  digitalWrite(blue,LOW);
+  digitalWrite(yellow, HIGH);
+  digitalWrite(green, LOW);
+  delay(dah);
+  
+  //NUMBER 3
+  digitalWrite(red, LOW);
+  digitalWrite(blue,LOW);
+  digitalWrite(yellow, HIGH);
+  digitalWrite(green, HIGH);
+  delay(dah);
+  
+  //NUMBER 4
+  digitalWrite(red, LOW);
+  digitalWrite(blue,HIGH);
+  digitalWrite(yellow, LOW);
+  digitalWrite(green, LOW);
+  delay(dah);
+  
+  //NUMBER 5
+  digitalWrite(red, LOW);
+  digitalWrite(blue,HIGH);
+  digitalWrite(yellow, LOW);
+  digitalWrite(green, HIGH);
+  delay(dah);
+  
+  //NUMBER 6
+  digitalWrite(red, LOW);
+  digitalWrite(blue,HIGH);
+  digitalWrite(yellow, HIGH);
+  digitalWrite(green, LOW);
+  delay(dah);
+  
+  //NUMBER 7
+  digitalWrite(red, LOW);
+  digitalWrite(blue,HIGH);
+  digitalWrite(yellow, HIGH);
+  digitalWrite(green, HIGH);
+  delay(dah);
+  
+  //NUMBER 8
+  digitalWrite(red, HIGH);
+  digitalWrite(blue,LOW);
+  digitalWrite(yellow, LOW);
+  digitalWrite(green, LOW);
+  delay(dah);
+  
+  //NUMBER 9
+  digitalWrite(red, HIGH);
+  digitalWrite(blue,LOW);
+  digitalWrite(yellow, LOW);
+  digitalWrite(green, HIGH);
+  delay(dah);
+  
+  //NUMBER 10
+  digitalWrite(red, HIGH);
+  digitalWrite(blue,LOW);
+  digitalWrite(yellow, HIGH);
+  digitalWrite(green, LOW);
+  delay(dah);
+  
+  //NUMBER 11
+  digitalWrite(red, HIGH);
+  digitalWrite(blue,LOW);
+  digitalWrite(yellow, HIGH);
+  digitalWrite(green, HIGH);
+  delay(dah);
+  
+  //NUMBER 12
+  digitalWrite(red, HIGH);
+  digitalWrite(blue,HIGH);
+  digitalWrite(yellow, LOW);
+  digitalWrite(green, LOW);
+  delay(dah);
+  
+  //NUMBER 13
+  digitalWrite(red, HIGH);
+  digitalWrite(blue,HIGH);
+  digitalWrite(yellow, LOW);
+  digitalWrite(green, HIGH);
+  delay(dah);
+  
+  //NUMBER 14
+  digitalWrite(red, HIGH);
+  digitalWrite(blue,HIGH);
+  digitalWrite(yellow, HIGH);
+  digitalWrite(green, LOW);
+  delay(dah);
+  
+  //NUMBER 15
+  digitalWrite(red, HIGH);
+  digitalWrite(blue,HIGH);
+  digitalWrite(yellow, HIGH);
+  digitalWrite(green, HIGH);
+  delay(dah);
+}
+'''
