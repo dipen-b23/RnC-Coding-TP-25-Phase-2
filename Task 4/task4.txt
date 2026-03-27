@@ -1,0 +1,61 @@
+1. Stack – Balancing Brackets
+
+Write a program to check whether a given expression has balanced brackets.
+
+Input: A string containing (), {}, []
+
+Output: Balanced or Not Balanced
+
+
+Example:
+
+Input: {[()]}
+
+Output: Balanced
+
+Input: {[(])}
+
+Output: Not Balanced
+
+
+
+---
+
+2. Linked List – Detect Loop
+
+Given a singly linked list, detect whether it contains a loop.
+
+Return Yes if a loop exists, otherwise No
+
+
+Example:
+
+Input: 1 → 2 → 3 → 4 → 5 → points back to 3
+
+Output: Yes
+
+
+
+---
+
+3. Queue – (Queue using Stack)
+
+Implement a queue using two stacks.
+
+Support operations:
+
+Enqueue
+
+Dequeue
+
+Peek
+
+
+
+Example:
+
+Enqueue: 1, 2, 3
+
+Dequeue → 1
+
+Peek → 2
