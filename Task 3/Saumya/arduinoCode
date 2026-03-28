@@ -1,0 +1,88 @@
+// C++ code
+//
+
+int mSpeed = 3;
+int pushF = A1;
+int pushB = A2;
+int pushL = A3;
+int pushR = A4;
+int contSpeed = A0;
+int IN1 = 2;
+int IN2 = 13;
+int IN3 = 12;
+int IN4 = 4;
+int IN5 = 5;
+int IN6 = 11;
+int IN7 = 10;
+int IN8 = 6;
+int contS;
+int mS;
+int mode = 0;
+int dt = 250;
+
+void setup()
+{
+  pinMode(mSpeed, OUTPUT);
+  pinMode(pushF, INPUT_PULLUP);
+  pinMode(pushB, INPUT_PULLUP);
+  pinMode(pushL, INPUT_PULLUP);
+  pinMode(pushR, INPUT_PULLUP);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+  pinMode(IN5, OUTPUT);
+  pinMode(IN6, OUTPUT);
+  pinMode(IN7, OUTPUT);
+  pinMode(IN8, OUTPUT);
+  pinMode(contSpeed, INPUT);
+}
+
+void loop()
+{
+  contS = analogRead(contSpeed);
+  mS = map(contS,0,1023,0,255);
+  analogWrite(mSpeed,mS);
+  
+  if(digitalRead(pushF) == LOW) mode = 1;
+  if(digitalRead(pushB) == LOW) mode = 2;
+  if(digitalRead(pushL) == LOW) mode = 3;
+  if(digitalRead(pushR) == LOW) mode = 4;
+
+  if(mode == 1) forward();
+  if(mode == 2) backward();
+  if(mode == 3) leftTurn();
+  if(mode == 4) rightTurn();
+}
+
+void forward()
+{
+  digitalWrite(IN1,HIGH); digitalWrite(IN2,LOW);
+  digitalWrite(IN3,HIGH); digitalWrite(IN4,LOW);
+  digitalWrite(IN5,HIGH); digitalWrite(IN6,LOW);
+  digitalWrite(IN7,HIGH); digitalWrite(IN8,LOW);
+}
+
+void backward()
+{
+  digitalWrite(IN1,LOW); digitalWrite(IN2,HIGH);
+  digitalWrite(IN3,LOW); digitalWrite(IN4,HIGH);
+  digitalWrite(IN5,LOW); digitalWrite(IN6,HIGH);
+  digitalWrite(IN7,LOW); digitalWrite(IN8,HIGH);
+}
+
+void leftTurn()
+{
+  digitalWrite(IN1,LOW); digitalWrite(IN2,HIGH);
+  digitalWrite(IN3,LOW); digitalWrite(IN4,HIGH);
+  digitalWrite(IN5,HIGH); digitalWrite(IN6,LOW);
+  digitalWrite(IN7,HIGH); digitalWrite(IN8,LOW);
+}
+
+void rightTurn()
+{
+  digitalWrite(IN1,HIGH); digitalWrite(IN2,LOW);
+  digitalWrite(IN3,HIGH); digitalWrite(IN4,LOW);
+  digitalWrite(IN5,LOW); digitalWrite(IN6,HIGH);
+  digitalWrite(IN7,LOW); digitalWrite(IN8,HIGH);
+}
