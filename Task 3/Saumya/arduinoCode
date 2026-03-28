@@ -86,3 +86,6 @@ void rightTurn()
   digitalWrite(IN5,LOW); digitalWrite(IN6,HIGH);
   digitalWrite(IN7,LOW); digitalWrite(IN8,HIGH);
 }
+
+//Link for the tinkerCad circuit design
+https://www.tinkercad.com/things/7Bvz9cZd8sC-motors-speed-and-direction-control
