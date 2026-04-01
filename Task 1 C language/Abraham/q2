@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, j, minIndex, temp;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int a[n];
+
+    printf("Enter the elements: ");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+
+    for(i=0; i<n-1;i++){
+        for(j =i+1; j<n; j++){
+            minIndex=i;
+            if(a[j]<a[minIndex]) {
+                minIndex=j;
+            }
+            temp=a[i];
+            a[i]=a[minIndex];
+            a[minIndex]=temp;
+            }
+        }
+    
+
+    printf("Maximum element: %d\n", a[n - 1]);
+    printf("Minimum element: %d\n", a[0]);
+   
+    return 0;
+}
