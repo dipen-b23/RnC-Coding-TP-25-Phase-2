@@ -21,7 +21,7 @@ int main() {
     second->next = third;
 
     third->data = 3;
-    third->next = second; // 🔁 LOOP CREATED HERE
+    third->next = second; //
 
     // Detect loop
     struct Node* temp = head;
@@ -31,7 +31,7 @@ int main() {
         temp = temp->next;
         count++;
 
-        if(count > 100) {   // arbitrary large limit
+        if(count > 100) {  
             printf("Yes, loop exists");
             return 0;
         }
