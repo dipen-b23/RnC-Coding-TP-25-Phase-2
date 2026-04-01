@@ -1,0 +1,20 @@
+import collections
+
+def dfs (visited, graph, root):
+    if root not in visited:
+        print (root)
+        visited.add(root)
+        for j in graph[root]:
+            dfs (visited, graph, j)
+
+if __name__ == "__main__":
+    graph = {
+        0:[1,2,3],
+        1: [0,2],
+        2: [0,1,4],
+        3: [0],
+        4: [2]  
+    }
+    visited = set()
+    dfs (visited, graph, 0)
+
