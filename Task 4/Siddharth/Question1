@@ -1,53 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 
-struct Node {
-    int data;
-    struct Node* next;
-};
-
-
-bool detectLoop(struct Node* head) {
-    struct Node *slow = head, *fast = head;
-
-    while (slow && fast && fast->next) {
-        slow = slow->next;          
-        fast = fast->next->next;    
-
-        
-        if (slow == fast) {
-            return true;
-        }
-    }
+bool isMatchingPair(char open, char close) {
+    if (open == '(' && close == ')') 
+        return true;
+    if (open == '{' && close == '}') 
+        return true;
+    if (open == '[' && close == ']') 
+        return true;
     
     return false;
 }
 
+bool isBalanced(char *brac) {
+    int n = strlen(brac); 
+    
+    char* stack = (char*)malloc(n *sizeof(char));
+    int top = -1;
 
-struct Node* newNode(int data) {
-    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
-    temp->data = data;
-    temp->next = NULL;
-    return temp;
+    for (int i = 0; i < n; i++) {
+       
+        if (brac[i] == '(' || brac[i] == '{' || brac[i] == '[') {
+            stack[++top] = brac[i];
+        } 
+        
+        else if (brac[i] == ')' || brac[i] == '}' || brac[i] == ']') {
+            
+            if (top == -1 || !isMatchingPair(stack[top--], brac[i])) {
+                free(stack);
+                return false;
+            }
+        }
+    }
+
+    
+    bool result = (top == -1);
+    free(stack);
+    return result; 
+    
 }
+
+
 
 int main() {
-    
-    struct Node* head = newNode(10);
-    head->next = newNode(20);
-    head->next->next = newNode(30);
-    head->next->next->next = newNode(40);
+    char brac[] = "{[())}";
 
-    
-    head->next->next->next->next = head->next;
+    if (isBalanced(brac))
 
-    if (detectLoop(head))
-        printf("Loop is detected\n");
+        printf("It is Balanced \n");
     else
-        printf(" Loop is not detected.\n");
+        printf("It is not balanced \n");
 
     return 0;
-    
-}
+} 
