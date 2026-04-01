@@ -1,0 +1,115 @@
+// C++ code
+const int l0 = 2;
+const int l1 = 3;
+const int l2 = 4;
+const int l3 = 5;
+const int gap = 750;
+void setup()
+{
+  pinMode(l0, OUTPUT);
+  pinMode(l1, OUTPUT);
+  pinMode(l2, OUTPUT);
+  pinMode(l3, OUTPUT);
+}
+
+void loop()
+{
+  
+  //0
+  digitalWrite(l0,LOW);
+  digitalWrite(l1,LOW);
+  digitalWrite(l2,LOW);
+  digitalWrite(l3,LOW);
+  delay(gap);
+  //1
+  digitalWrite(l0,HIGH);
+  digitalWrite(l1,LOW);
+  digitalWrite(l2,LOW);
+  digitalWrite(l3,LOW);
+  delay(gap);
+  //2
+  digitalWrite(l0,LOW);
+  digitalWrite(l1,HIGH);
+  digitalWrite(l2,LOW);
+  digitalWrite(l3,LOW);
+  delay(gap);
+  //3
+  digitalWrite(l0,HIGH);
+  digitalWrite(l1,HIGH);
+  digitalWrite(l2,LOW);
+  digitalWrite(l3,LOW);
+  delay(gap);
+  //4
+  digitalWrite(l0,LOW);
+  digitalWrite(l1,LOW);
+  digitalWrite(l2,HIGH);
+  digitalWrite(l3,LOW);
+  delay(gap);
+  //5
+  digitalWrite(l0,HIGH);
+  digitalWrite(l1,LOW);
+  digitalWrite(l2,HIGH);
+  digitalWrite(l3,LOW);
+  delay(gap);
+  //6
+  digitalWrite(l0,LOW);
+  digitalWrite(l1,HIGH);
+  digitalWrite(l2,HIGH);
+  digitalWrite(l3,LOW);
+  delay(gap);
+  //7
+  digitalWrite(l0,HIGH);
+  digitalWrite(l1,HIGH);
+  digitalWrite(l2,HIGH);
+  digitalWrite(l3,LOW);
+  delay(gap);
+  //8
+  digitalWrite(l0,LOW);
+  digitalWrite(l1,LOW);
+  digitalWrite(l2,LOW);
+  digitalWrite(l3,HIGH);
+  delay(gap);
+  //9
+  digitalWrite(l0,HIGH);
+  digitalWrite(l1,LOW);
+  digitalWrite(l2,LOW);
+  digitalWrite(l3,HIGH);
+  delay(gap);
+  //10
+  digitalWrite(l0,LOW);
+  digitalWrite(l1,HIGH);
+  digitalWrite(l2,LOW);
+  digitalWrite(l3,HIGH);
+  delay(gap);
+  //11
+  digitalWrite(l0,HIGH);
+  digitalWrite(l1,HIGH);
+  digitalWrite(l2,LOW);
+  digitalWrite(l3,HIGH);
+  delay(gap);
+  //12
+  digitalWrite(l0,LOW);
+  digitalWrite(l1,LOW);
+  digitalWrite(l2,HIGH);
+  digitalWrite(l3,HIGH);
+  delay(gap);
+  //13
+  digitalWrite(l0,HIGH);
+  digitalWrite(l1,LOW);
+  digitalWrite(l2,HIGH);
+  digitalWrite(l3,HIGH);
+  delay(gap);
+  //14
+  digitalWrite(l0,LOW);
+  digitalWrite(l1,HIGH);
+  digitalWrite(l2,HIGH);
+  digitalWrite(l3,HIGH);
+  delay(gap);
+  //15
+  digitalWrite(l0,HIGH);
+  digitalWrite(l1,HIGH);
+  digitalWrite(l2,HIGH);
+  digitalWrite(l3,HIGH);
+  delay(gap);
+    
+}
