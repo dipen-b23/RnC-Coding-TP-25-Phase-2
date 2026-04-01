@@ -1,1 +1,87 @@
 
+int enA = 9;
+int enB = 10;
+
+int in1 = 6;
+int in2 = 7;
+int in3 = 8;
+int in4 = 11;
+
+int forwardBtn = 2;
+int backBtn = 3;
+int leftBtn = 4;
+int rightBtn = 5;
+
+int pot = A0;
+
+void setup() {
+
+  pinMode(in1,OUTPUT);
+  pinMode(in2,OUTPUT);
+  pinMode(in3,OUTPUT);
+  pinMode(in4,OUTPUT);
+
+  pinMode(enA,OUTPUT);
+  pinMode(enB,OUTPUT);
+
+  pinMode(forwardBtn,INPUT_PULLUP);
+  pinMode(backBtn,INPUT_PULLUP);
+  pinMode(leftBtn,INPUT_PULLUP);
+  pinMode(rightBtn,INPUT_PULLUP);
+
+}
+
+void loop() {
+
+  int speed = analogRead(pot);
+  speed = map(speed,0,1023,0,255);
+
+  analogWrite(enA,speed);
+  analogWrite(enB,speed);
+
+  if(digitalRead(forwardBtn)==LOW){
+
+    digitalWrite(in1,HIGH);
+    digitalWrite(in2,LOW);
+    digitalWrite(in3,HIGH);
+    digitalWrite(in4,LOW);
+
+  }
+
+  else if(digitalRead(backBtn)==LOW){
+
+    digitalWrite(in1,LOW);
+    digitalWrite(in2,HIGH);
+    digitalWrite(in3,LOW);
+    digitalWrite(in4,HIGH);
+
+  }
+
+  else if(digitalRead(leftBtn)==LOW){
+
+    digitalWrite(in1,LOW);
+    digitalWrite(in2,HIGH);
+    digitalWrite(in3,HIGH);
+    digitalWrite(in4,LOW);
+
+  }
+
+  else if(digitalRead(rightBtn)==LOW){
+
+    digitalWrite(in1,HIGH);
+    digitalWrite(in2,LOW);
+    digitalWrite(in3,LOW);
+    digitalWrite(in4,HIGH);
+
+  }
+
+  else{
+	
+ 
+    digitalWrite(in1,LOW);
+    digitalWrite(in2,LOW);
+    digitalWrite(in3,LOW);
+    digitalWrite(in4,LOW);
+
+  }
+}
