@@ -1,0 +1,85 @@
+def is_balanced(expr):
+    stack = []
+    pairs = {')': '(', '}': '{', ']': '['}
+
+    for char in expr:
+        if char in "({[":
+            stack.append(char)
+        elif char in ")}]":
+            if not stack or stack[-1] != pairs[char]:
+                return "Not Balanced"
+            stack.pop()
+
+    return "Balanced" if not stack else "Not Balanced"
+
+
+
+print(is_balanced("{[()]}")) 
+print(is_balanced("{[(])}"))
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+def detect_loop(head):
+    slow = head
+    fast = head
+
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+
+        if slow == fast:
+            return "Yes"
+
+    return "No"
+
+
+head = Node(1)
+head.next = Node(2)
+head.next.next = Node(3)
+head.next.next.next = Node(4)
+head.next.next.next.next = Node(5)
+
+head.next.next.next.next.next = head.next.next
+
+print(detect_loop(head))  
+
+class QueueUsingStacks:
+    def __init__(self):
+        self.stack1 = []
+        self.stack2 = []
+
+    def enqueue(self, x):
+        self.stack1.append(x)
+
+    def dequeue(self):
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+
+        if not self.stack2:
+            return "Queue is empty"
+
+        return self.stack2.pop()
+
+    def peek(self):
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+
+        if not self.stack2:
+            return "Queue is empty"
+
+        return self.stack2[-1]
+
+
+q = QueueUsingStacks()
+q.enqueue(1)
+q.enqueue(2)
+q.enqueue(3)
+
+print(q.dequeue())  
+print(q.peek())     
