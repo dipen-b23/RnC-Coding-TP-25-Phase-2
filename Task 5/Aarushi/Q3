@@ -1,0 +1,44 @@
+class Stack:
+    def __init__(self):
+        self.stack = []
+    def push(self,element):
+        self.stack.append(element)
+    def pop(self):
+        if self.isEmpty():
+            return "Stack is empty"
+        return self.stack.pop()
+    def peek(self):
+        if self.isEmpty():
+            return "Stack is empty"
+        return self.stack[-1]
+    def isEmpty(self):
+        return len(self.stack) == 0
+    def size(self):
+        return len(self.stack)
+s1 = Stack()
+s2 = Stack()
+def enqueue(s1,s2,element):
+        s1.push(element)
+def dequeue(s1,s2):
+    while s1.size() > 1:
+        x = s1.pop()
+        s2.push(x)
+    z = s1.pop()
+    while s2.isEmpty() ==False:
+        y = s2.pop()
+        s1.push(y)
+    return z
+def peek(s1,s2):
+    while s1.size() > 1:
+        x = s1.pop()
+        s2.push(x)
+    z = s1.peek()
+    while s2.isEmpty() ==False:
+        y = s2.pop()
+        s1.push(y)
+    return z
+enqueue(s1,s2,1)
+enqueue(s1,s2,2)
+enqueue(s1,s2,3)
+print(dequeue(s1,s2))
+print(peek(s1,s2))
