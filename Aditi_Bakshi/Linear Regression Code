@@ -1,0 +1,76 @@
+# Q1 Linear Regression
+# insurance.csv
+# ADITI BAKSHI
+
+import pandas as pd
+import numpy as np
+df = pd.read_csv("insurance.csv")
+print(df.head())
+df['sex'] = df['sex'].map({'male': 0, 'female': 1})
+df['smoker'] = df['smoker'].map({'no': 0, 'yes': 1})
+df = pd.get_dummies(df, columns=['region'])
+
+x = df.drop('expenses', axis=1).values
+y = df['expenses'].values
+x = x.astype(float)
+x_mean = x.mean(axis=0)
+x_std = x.std(axis=0)
+x = (x - x_mean) / x_std
+
+split = int(0.8 * len(x))
+x_train = x[:split]
+y_train = y[:split]
+x_test = x[split:]
+y_test = y[split:]
+
+# initialising
+w=b=0
+n_features = x.shape[1]
+w = np.zeros(n_features)
+b = 0
+
+# training
+a = 0.01
+c = 1000
+n = len(y_train)
+print()
+for i in range(c):
+    y_pred = np.dot(x_train, w) + b
+    error = y_pred - y_train
+
+    dw = (2/n) * np.dot(x_train.T, error)
+    db = (2/n) * np.sum(error)
+
+    w = w - a * dw
+    b = b - a * db
+
+    # if i % 100 == 0:
+    #     loss = np.mean(error**2)
+    #     print(f"Iteration {i}, Loss: {loss:.2f}")
+
+#testing
+y_pred_test = np.dot(x_test, w) + b
+
+mae = np.mean(np.abs(y_test - y_pred_test))
+mse = np.mean((y_test - y_pred_test)**2)
+
+ss_total = np.sum((y_test - np.mean(y_test))**2)
+ss_residual = np.sum((y_test - y_pred_test)**2)
+r2 = 1 - (ss_residual / ss_total)
+
+print("\nModel Evaluation")
+print("MAE:", mae)
+print("MSE:", mse)
+print("R2 Score:", r2)
+
+# predicting
+def predict(new_data, w, b, mean, std):
+    new_data = (new_data - mean) / std
+    return np.dot(new_data, w) + b
+
+# Example input
+new_person = np.array([40, 1, 30, 2, 1, 0, 0, 1, 0])
+
+prediction = predict(new_person, w, b, x_mean, x_std)
+
+print("\nPredicted Charges:", prediction)
