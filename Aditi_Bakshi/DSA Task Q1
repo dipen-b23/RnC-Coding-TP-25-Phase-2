@@ -1,0 +1,79 @@
+// forgot to push to git
+//Q1 DSA
+import java.util.*;
+public class BalancedArray 
+{
+    static boolean isBalanced(String expr) 
+    {
+        Node s = new Node(expr.length());
+
+        for (char ch : expr.toCharArray()) 
+        {
+            if (ch == '(' || ch == '{' || ch == '[') 
+            {
+                s.push(ch);
+            } 
+            else 
+            {
+                if (s.isEmpty()) 
+                return false;
+
+                char top = s.pop();
+
+                if ((ch == ')' && top != '(') ||
+                    (ch == '}' && top != '{') ||
+                    (ch == ']' && top != '[')) 
+                {
+                    return false;
+                }
+            }
+        }
+        return s.isEmpty();
+    }
+
+    public static void main(String[] args) 
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter brackets");
+        String input = sc.nextLine();
+
+        if (isBalanced(input))
+            System.out.println("Balanced");
+        else
+            System.out.println("Not Balanced");
+    }
+}
+class Node 
+{
+    int top = -1;
+    char[] stack;
+    int size;
+
+    Node(int size) 
+    {
+        this.size = size;
+        stack = new char[size];
+    }
+
+    void push(char ch) {
+        if (top < size - 1) {
+            stack[++top] = ch;
+        }
+    }
+
+    char pop() {
+        if (top >= 0) {
+            return stack[top--];
+        }
+        return '\0';
+    }
+
+    boolean isEmpty() {
+        return top == -1;
+    }
+
+    char peek() {
+        if (top >= 0) return stack[top];
+        return '\0';
+    }
+}
