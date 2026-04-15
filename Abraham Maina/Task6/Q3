@@ -1,0 +1,47 @@
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv(r'Boston.csv')
+df.head()
+X_raw = df.drop(['Unnamed: 0', 'medv'], axis =1)
+feature_names = X_raw.columns
+
+X = X_raw.values.astype(float)
+y = df['medv'].values
+
+#2 Standardize
+
+X_std = (X - np.mean(X, axis = 0))/(np.std(X, axis = 0))
+
+#3 Regularized Model
+
+def trainModel(X, y, epochs = 1000, l_param = 1.0, lr = 0.01, mode = 'Ridge'):
+    weight = np.zeros(X.shape[1])
+    bias = 0
+    m = len(y)
+
+    for i in range(epochs):
+        prediction = np.dot(X, weight) + bias
+        if mode =='Ridge':
+            penalty = l_param*weight #L2 Penalty
+        else:
+            penalty = l_param*np.sign(weight) #L1 Penalty
+
+        dw = (1/m) * (np.dot(X.T, (prediction - y)) + penalty)
+        db = (1/m) * np.sum(prediction - y)
+
+        weight = weight -lr*dw
+        bias = bias - lr*db
+    return weight, bias
+
+w_ridge, b_ridge = trainModel(X_std, y, l_param = 10.0, mode = 'Ridge')
+w_lasso, b_lasso = trainModel(X_std, y, l_param = 1.0, mode = 'lasso')
+
+print(f"{'Feature':<15}  {'Ridge Weight':>15}  {'Lasso Weight':>15}")
+for name , r, l in zip(feature_names, w_ridge, w_lasso):
+    print(f"{name:<15} {r:>15.4f} {l:>15.4f}")
+
+
+print(f"Ridge Intercept: {b_ridge:.2f}")
+print(f"Lasso Intercept: {b_lasso:.2f}")
+
