@@ -1,0 +1,20 @@
+TASK 7 - MACHINE LEARNING IMPLEMENTATION
+
+This task helps in the application and understanding of Linear & Logistical Regression as well as  Ridge and Lasso Models
+
+Problem statement for Linear Regression-
+Using insurance.csv , predict the medical insurance cost (charges) for a person based on features like age, BMI, number of children, smoker status, and region.
+
+Problem statement for Logistic Regression-
+Using heart.csv ,predict whether a patient is likely to have heart disease based on clinical features such as age, resting blood pressure, cholesterol, and ECG results.
+
+Problem statement for Ridge And Lasso Models - 
+Using boston.csv, predict the median house value in Boston suburbs using demographic and geographic features. Identify which features impact pricing and how regularization affects model weights. It is imperative that you utilise the Ridge as well as a lasso model to compare the two to find out the efficiency
+
+Problem statement for SVM-
+The goal of this project is to use Support Vector Machines (SVM) to classify patients as diabetic or non-diabetic based on medical attributes such as glucose level, blood pressure, BMI, and age. The dataset may or may not be preprocessed and an appropriate SVM model is to be trained to learn the decision boundary between the two classes. The model’s performance is to be evaluated using standard classification metrics.
+
+You will have to make separate base codes for this and ensure that it works for the files given below, Also learn about regularisation and its different types in the context of ML
+
+
+
