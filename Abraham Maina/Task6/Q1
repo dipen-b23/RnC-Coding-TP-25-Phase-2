@@ -1,0 +1,43 @@
+import numpy as np
+import pandas as pd
+
+#1 Load and Preprocess
+df = pd.read_csv('insurance.csv')
+
+# Convert text categories to numbers (one-hot encoding)
+df_encoded = pd.get_dummies(df, drop_first=True)
+
+# Separate features (X) and target (y)
+# We store feature_names (text) BEFORE converting to a numpy array
+feature_names = df_encoded.drop('expenses', axis=1).columns
+X = df_encoded.drop('expenses', axis=1).values.astype(float) # Fix for your error
+y = df_encoded['expenses'].values
+
+# Standardize features (Mean=0, Std=1)
+X_std = (X - np.mean(X, axis=0)) / np.std(X, axis=0)
+
+#2 Simple Linear Regression from Scratch
+weights = np.zeros(X.shape[1])
+bias = 0
+lr = 0.1
+epochs = 1000
+
+for _ in range(epochs):
+    prediction = np.dot(X_std, weights) + bias
+    # Gradient Descent formulas
+    dw = (1 / len(y)) * np.dot(X_std.T, (prediction - y))
+    db = (1 / len(y)) * np.sum(prediction - y)
+    weights -= lr * dw
+    bias -= lr * db
+
+print(" INSURANCE COST MODEL RESULTS ")
+print(f"Base Cost (Intercept): ${bias:.2f}\n")
+
+print("How each feature affects the price:")
+# We use zip to pair the Text Name with the Numerical Weight
+for name, w in zip(feature_names, weights):
+    print(f"Feature: {name:20}  Impact: ${w:10.2f}")
+
+# Example of a single prediction printout
+sample_prediction = np.dot(X_std[0], weights) + bias
+print(f"\nExample Prediction (First Person in data): ${sample_prediction:.2f}")
