@@ -1,0 +1,47 @@
+import cv2
+
+image_path = "input.jpg"
+image = cv2.imread(image_path)
+
+if image is None:
+    print("Error: Image not found!")
+    exit()
+
+output = image.copy()
+
+watermark_text = "My Watermark"
+
+x = 500
+y = 500
+
+font = cv2.FONT_HERSHEY_SIMPLEX
+font_scale = 2
+color = (255, 255, 255)   #white text
+thickness = 3
+
+#transparency level
+alpha = 0.4
+
+overlay = output.copy()
+
+cv2.putText(
+    overlay,
+    watermark_text,
+    (x, y),
+    font,
+    font_scale,
+    color,
+    thickness,
+    cv2.LINE_AA
+)
+
+cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, output)
+
+output_path = "watermarked_image.jpg"
+cv2.imwrite(output_path, output)
+
+print(f"Watermarked image saved as: {output_path}")
+
+cv2.imshow("Watermarked Image", output)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
