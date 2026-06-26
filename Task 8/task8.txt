@@ -1,0 +1,14 @@
+Create a ROS 2 Humble package that simulates a Smart Home Network using ROS 2 client libraries only. The system must consist of  three nodes: a Temperature Sensor, a Smart Plug Controller, and a Home Dashboard.
+
+The Temperature Sensor should periodically publish simulated room temperature data.
+The Home Dashboard should subscribe to the temperature data, display updates, and automatically control the Smart Plug through a ROS 2 Service 
+based on configurable temperature thresholds. The Smart Plug Controller should act as a Service Server that processes ON/OFF requests and reports status changes.
+
+After completing the basic system, create a separate interface package containing a custom message definition and integrate it into your project. 
+Design the topics, node interactions, and package structure yourself while applying ROS 2 concepts such as publishers, subscribers, services, custom interfaces, workspaces, build tools, 
+and CLI-based debugging/verification.
+
+Additionally, submit a short report on ROS 2 documentation.
+
+
+Deadline: 26th June,2026
