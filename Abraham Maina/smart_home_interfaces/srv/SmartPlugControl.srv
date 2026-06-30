@@ -1,0 +1,5 @@
+string action
+float32 temperature
+---
+bool success
+string message
